@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+    db:
+        image: postgres:9-alpine
+        ports:
+            - "5432:5432"
+        restart: always
+        environment:
+            POSTGRES_PASSWORD: docker
+
+    product:
+        depends_on:
+            - db
+        build:
+            context: .
+        image: icommerce/product-service
+        ports:
+            - "8080:8080"
+        restart: always
+
+    user:
+        depends_on:
+            - product
+        build:
+            context: ./users
+        image: icommerce/user-service
+        ports:
+            - "8081:8081"
+        restart: always
