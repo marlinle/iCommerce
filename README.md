@@ -77,7 +77,7 @@ The project structure follows **Maven** convention as below:
 
 ### Entity Relation Diagram
 
-![ERD on PostgreSQL](Entity Relation Diagram.jpg)
+![ERD on PostgreSQL](Entity%20Relation%20Diagram.jpg)
 
 ### Local building & testing
 
@@ -159,7 +159,7 @@ User service derives from **CrudRepository**
 
 ### Serverless Architecture in AWS
 
-![Serverless Design](Serverless Design.jpg)
+![Serverless Design](Serverless%20Design.jpg)
 
 1. iCommerce site
 
