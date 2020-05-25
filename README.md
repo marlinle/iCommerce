@@ -2,6 +2,10 @@
 
 Example implementation for some operations of 2 backend REST API : **Product** & **User** services. *Audit log REST resource* is organized in Product service in order to demonstrate inter-service communication between those 2 services (i.e. User service will call Product service for audit logging). 
 
+## Component Design
+
+![Component Design](Component%20Design.PNG)
+
 ## Folder Structure
 
 The project structure follows **Maven** convention as below:
@@ -31,6 +35,7 @@ The project structure follows **Maven** convention as below:
 ├── README.md
 ├── pom.xml
 ├── Entity Relation Diagram.jpg                 # ERD in PostgreSQL
+├── Component Design.PNG                        # Component Design
 ├── Serverless Design.jpg                       # Serverless Architecture on AWS
 ├── test.sh                                     # curl test commands
 ├── *
@@ -155,6 +160,10 @@ User service derives from **CrudRepository**
    curl -i http://localhost:8081/users
    # Manually insert 1 user profile
    curl -i -H "Content-Type:application/json" -d '{"fbId": "1234567890", "firstName":"Marlin", "lastName": "Le", "gender":"MALE", "age":37}' http://localhost:8081/users
+   
+   # ---------- Integration test ----------
+   # After testing with User Service, verify that those corresponding audit logs are persisted through product service
+   curl -i http://localhost:8080/logEntries
    ```
 
 ### Serverless Architecture in AWS
