@@ -142,9 +142,9 @@ User service derives from **CrudRepository**
    
    # Find products by name
    curl -i http://localhost:8080/products/search/findByName?name=Fossil%20Q
-   # Find products by name
+   # Find products by brand
    curl -i http://localhost:8080/products/search/findByBrand?brand=fossil
-   # Find products by name
+   # Find products by color
    curl -i http://localhost:8080/products/search/findByColor?color=red
    # Find products by price between (priceLow, priceHigh)
    curl -i "http://localhost:8080/products/search/findByPriceBetween?priceLow=100&priceHigh=110"
